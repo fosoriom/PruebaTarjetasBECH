@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Nóminas";
+}
+<br />
+
+<div class="panel panel-default">
+    <div class="panel-heading">Nóminas</div>
+    <div class="panel-body">
+        <table id="tb_nomina" class="table-bordered table-striped">
+            <tr>
+                <th>Sucursal</th>
+                <th>Tipo Plástico</th>
+                <th>Stock</th>
+                <th>Proveedor</th>
+                <th>Cantidad</th>          
+                
+            </tr>
+
+            
+            
+            @{ 
+                for (int i = 1; i <= 10; i++)
+                {
+                    <tr>
+                        <td > sucursal @i</td>
+                        <td> tipo Platisco @i</td>
+                        <td>@i</td>
+                        <td>proveedor @i</td>
+                        <td id="@i">
+                            <div id="result"></div>
+                        <td>
+                        <td>
+                            @{ string nom_n = "boton_add_" + i;}
+                            <button id="btn_evento" name="@nom_n">Click</button>
+                        </td>
+                        
+  
+                      </tr>
+                }
+
+
+            }
+            
+            
+            <tr>
+                <td>Casa Matriz</td>
+                <td>Cta Corriente</td>
+                <td>300</td>
+                <td>A</td>
+               
+                <td>
+                    <button id="btn_evento" >Click</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Independencia</td>
+                <td>Cta RUT</td>
+                <td>200</td>
+                <td>B</td>
+                <td>
+                <div id="contenedor">
+                    <div class="added">
+                        <input type="text" name="mitexto[]" id="campo_1" placeholder="Texto 1" /><a href="#" class="eliminar">&times;</a>
+                    </div>
+                </div>
+                </td>
+                <td><a id="agregarCampo" class="btn btn-info" href="#">Agregar Campo</a></td>
+               
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+
+

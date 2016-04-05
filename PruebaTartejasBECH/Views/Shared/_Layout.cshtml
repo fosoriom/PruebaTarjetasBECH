@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                @Html.ActionLink("Tarjetas BECH", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Nominas", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Stock Crítico", "About", "Home")</li>
+                    <li>@Html.ActionLink("Despachos Pendientes", "Contact", "navbar-default")</li>
+                    <li>@Html.ActionLink("Sucursales", "AgregarSucursal", "Sucursal")</li>
+                </ul>
+               @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
+
+<script>
+    // $('td[name^="boton_add"]').click(function(e) 
+    //$('button[name^="boton_add"]')
+    $(document).ready(function () {
+        $('button[name^="boton_add"]').click(function (e) {
+            e.preventDefault();
+            $('<input type="text" class = "form-control" placeholder="Nuevo input"></input>').$(this).appendTo($('#result'));
+        });
+    });
+</script>
+<!--
+<script>
+    $(document).ready(function () {
+        $('button[name^="boton_add"]').click(function (e) {
+            e.preventDefault();
+            document.getElementById('1').innerHTML += "<input type\text\" class = \"form-control\" placeholder=\"Nuevo input\"></input>";
+        });
+        
+    });
+    
+</script>
+
+    -->
+<!--JQUERY
+
+<script type="text/javascript">
+			$(document).ready(function() {
+
+				var MaxInputs       = 8; //maximum input boxes allowed
+				var contenedor   	= $("#contenedor"); //Input boxes wrapper ID
+				var AddButton       = $("#agregarCampo"); //Add button ID
+
+				//var x = contenedor.length; //initlal text box count
+				var x = $("#contenedor div").length + 1;
+				var FieldCount = x-1; //to keep track of text box added
+
+				$(AddButton).click(function (e)  //on add input button click
+				{
+						if(x <= MaxInputs) //max input box allowed
+						{
+							FieldCount++; //text box added increment
+							//add input box
+							$(contenedor).append('<div class="added"><input type="text" name="mitexto[]" id="campo_'+ FieldCount +'" placeholder="Texto '+ FieldCount +'"/><a href="#" class="eliminar">&times;</a></div>');
+							x++; //text box increment
+						}
+				return false;
+				});
+
+				$("body").on("click",".eliminar", function(e){ //user click on remove text
+						if( x > 1 ) {
+								$(this).parent('div').remove(); //remove text box
+								x--; //decrement textbox
+						}
+				return false;
+				});
+
+			});
+</script>
+ -->
